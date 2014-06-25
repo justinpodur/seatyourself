@@ -1,0 +1,26 @@
+<h1>Listing restaurants</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Price Range</th>
+		<th>Address</th>
+		<th>Cuisine</th>
+		<th>Summary</th>
+		<th>Capacity</th>
+		<th>Menu</th>
+	</tr>
+
+	<% @restaurants.each do |restaurant| %>
+	<tr>
+		<td><%= restaurant.name %></td>
+		<td><%= restaurant.pricerange %></td>
+		<td><%= restaurant.address %></td>
+		<td><%= restaurant.cuisine %></td>
+		<td><%= restaurant.summary %></td>
+		<td><%= restaurant.capacity %></td>
+		<td><%= restaurant.menu %></td>
+	</tr>
+	<% end %>
+</table>
+
