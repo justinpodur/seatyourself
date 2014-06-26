@@ -42,6 +42,7 @@
 <% @restaurant.reservations.each do |reservation| %>
 <p>
 	<% if reservation.user != nil %>
+	Reservation for <%= reservation.party_size %> people booked for <%= reservation.party_time %>
 	<em> by <%= reservation.user.email %></em>
 	Added on: <%= reservation.created_at %>
 	<% end %>
