@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 		@restaurant.destroy
 
-		redirect_to restaurant_path
+		redirect_to restaurants_path
 	end
 
 	def index
