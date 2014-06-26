@@ -22,6 +22,8 @@
 		<td><%= restaurant.summary %></td>
 		<td><%= restaurant.capacity %></td>
 		<td><%= restaurant.menu %></td>
+		<td><%= link_to 'Show', restaurant_path(restaurant) %></td>
+		<td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
 	</tr>
 	<% end %>
 </table>

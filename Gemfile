@@ -27,6 +27,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
+
+# pry gem
+gem 'pry'
+
+#rspec gem
+gem 'rspec-rails'
+
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
