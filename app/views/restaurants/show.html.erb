@@ -33,4 +33,56 @@
 	<%= @restaurant.menu %>
 </p>
 
+<% if current_user %>
+
+<h3>Reservations</h3>
+
+<p>Reservations for <%= @restaurant.name %></p>
+
+<% @restaurant.reservations.each do |reservation| %>
+<p>
+	<% if reservation.user != nil %>
+	<em> by <%= reservation.user.email %></em>
+	Added on: <%= reservation.created_at %>
+	<% end %>
+</p>
+<% end %>
+
+<% end %>
+
+<% if current_user %>
+
+<h4>New Reservation</h4>
+
+<%= form_for([@restaurant, @reservation]) do |f| %>
+<% if @reservation.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being made:</h2>
+
+	<ul>
+		<% @reservation.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :party_size %><br />
+	<%= f.number_field :party_size %>
+</div>
+<div class="field">
+	<%= f.label :party_time %><br />
+	<%= f.datetime_field :party_time %><br />
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>
+
+<% else %>
+<p>Please <%= link_to "log in", "new_session_path" %> to make a reservation. </p>
+
+<% end %> 
+
 <%= link_to 'Back', restaurants_path %> | <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
