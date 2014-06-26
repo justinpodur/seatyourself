@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 	before_action :load_restaurant
+  before_filter :ensure_logged_in, :only => [:show]
 
   def show
   	@reservation = Reservation.find(params[:id])
