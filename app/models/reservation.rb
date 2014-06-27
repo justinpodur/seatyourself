@@ -2,15 +2,15 @@ class Reservation < ActiveRecord::Base
 	belongs_to :restaurant
 	belongs_to :user
 
-# validates :availability
+  validates :restaurant, presence: true
+  validate :available
 
-	# private
+  private
 	
-	# def availability
- #    if !restaurant.available?(party_size, party_time)
- #        errors.add(:base, "Restaurant is full")
- #    end
-	# end
-
+	def available
+ 		if !restaurant.availability(party_size, party_time)
+  			errors.add(:base, "Restaurant is full")
+  	end
+ 	end
 
 end

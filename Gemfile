@@ -29,9 +29,10 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 
 # pry gem
-gem 'pry'
+gem 'pry', group: :development
 
 #rspec gem
+gem 'rspec'
 gem 'rspec-rails'
 
 gem 'bcrypt', '~> 3.1.7'
